@@ -1,0 +1,26 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    background-color: #97b2ca;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 24px 64px;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.header-title {
+    width: 106px;
+    height: 36px;
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    color: #444BFF;
+}
