@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
 
-import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app-routing.module";
 import { HeaderComponent } from "./header/header.component";
 import { BannerComponent } from "./banner/banner.component";
 import { FeaturedComponent } from "./featured/featured.component";
-import { BlogListComponent } from "./blog-list/blog-list.component";
-import { BlogCardComponent } from './blog-card/blog-card.component';
+import { BlogCardComponent } from "./blog-card/blog-card.component";
 
 @NgModule({
   declarations: [
@@ -15,10 +15,9 @@ import { BlogCardComponent } from './blog-card/blog-card.component';
     HeaderComponent,
     BannerComponent,
     FeaturedComponent,
-    BlogListComponent,
     BlogCardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

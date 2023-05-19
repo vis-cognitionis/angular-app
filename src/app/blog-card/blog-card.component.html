@@ -1,1 +1,8 @@
-<div class="blog-card-container"> blog-card works!</div>
+<div class="blog-card-container">
+    <div *ngFor="let post of blogCards">
+        <div class="blog-card">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.body }}</p>
+        </div>
+    </div>
+</div>
