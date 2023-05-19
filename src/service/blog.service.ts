@@ -2,11 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-export interface BlogCard {
-  id: string;
-  title: string;
-  body: string;
-}
+import { BlogCard } from "src/interface/blog_card_interface";
 
 @Injectable({
   providedIn: "root",

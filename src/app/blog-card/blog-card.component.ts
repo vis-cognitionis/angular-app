@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
-import { BlogCard, BlogService } from "src/service/blog.service";
+
+import { BlogCard } from "src/interface/blog_card_interface";
+import { BlogService } from "src/service/blog.service";
 
 @Component({
   selector: "app-blog-card",
