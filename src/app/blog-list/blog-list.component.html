@@ -1,3 +1,5 @@
-<div style="background-color: rgb(193, 107, 148); height: 1222px;">
-
+<div class="blog-cards-container">
+    <ng-container *ngFor="let card of blogCards">
+        <app-blog-card></app-blog-card>
+    </ng-container>
 </div>

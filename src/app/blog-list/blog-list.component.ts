@@ -5,4 +5,10 @@ import { Component } from "@angular/core";
   templateUrl: "./blog-list.component.html",
   styleUrls: ["./blog-list.component.css"],
 })
-export class BlogListComponent {}
+export class BlogListComponent {
+  blogCards: any[];
+
+  constructor() {
+    this.blogCards = Array(4).fill({});
+  }
+}
