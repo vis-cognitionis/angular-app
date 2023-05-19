@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, BehaviorSubject, finalize } from "rxjs";
 
 import { BlogCard } from "src/interface/blog_card_interface";
 
@@ -8,11 +8,21 @@ import { BlogCard } from "src/interface/blog_card_interface";
   providedIn: "root",
 })
 export class BlogService {
-  private apiUrl = "https://jsonplaceholder.typicode.com/posts";
+  private apiUrl: string = "https://jsonplaceholder.typicode.com/posts";
+  private loadingSubject: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false);
+
+  public isLoading$: Observable<boolean> = this.loadingSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
   getBlogPosts(): Observable<BlogCard[]> {
-    return this.http.get<BlogCard[]>(this.apiUrl);
+    this.loadingSubject.next(true);
+
+    return this.http.get<BlogCard[]>(this.apiUrl).pipe(
+      finalize(() => {
+        this.loadingSubject.next(false);
+      })
+    );
   }
 }

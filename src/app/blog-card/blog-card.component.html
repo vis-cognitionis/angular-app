@@ -1,6 +1,8 @@
-<div class="blog-card-container">
+<div class="blog-card-list-container">
+    <div *ngIf="isLoading" class="loader"></div>
+
     <div *ngFor="let post of blogCards">
-        <div class="blog-card">
+        <div *ngIf="!isLoading" class="blog-card">
             <h2>{{ post.title }}</h2>
             <p>{{ post.body }}</p>
         </div>

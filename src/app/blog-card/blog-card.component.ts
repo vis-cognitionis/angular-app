@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 import { BlogCard } from "src/interface/blog_card_interface";
 import { BlogService } from "src/service/blog.service";
@@ -8,12 +8,21 @@ import { BlogService } from "src/service/blog.service";
   templateUrl: "./blog-card.component.html",
   styleUrls: ["./blog-card.component.css"],
 })
-export class BlogCardComponent {
-  blogCards: BlogCard[];
-  constructor(private blogService: BlogService) {
-    this.blogCards = [];
+export class BlogCardComponent implements OnInit {
+  isLoading: boolean = false;
+  blogCards: BlogCard[] = [];
+
+  constructor(private blogService: BlogService) {}
+
+  ngOnInit(): void {
+    this.blogService.isLoading$.subscribe((isLoading) => {
+      this.isLoading = isLoading;
+    });
+
+    this.loadBlogPosts();
   }
-  ngOnInit() {
+
+  loadBlogPosts(): void {
     this.blogService.getBlogPosts().subscribe((posts) => {
       this.blogCards = posts;
     });
