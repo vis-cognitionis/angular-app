@@ -8,7 +8,7 @@ import { BlogCard } from "src/interface/blog_card_interface";
   providedIn: "root",
 })
 export class BlogService {
-  private apiUrl: string = "https://jsonplaceholder.typicode.com/posts";
+  private apiUrl: string = "https://dummyjson.com/products";
   private loadingSubject: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
 
@@ -16,10 +16,10 @@ export class BlogService {
 
   constructor(private http: HttpClient) {}
 
-  getBlogPosts(): Observable<BlogCard[]> {
+  getBlogPosts(): Observable<BlogCard> {
     this.loadingSubject.next(true);
 
-    return this.http.get<BlogCard[]>(this.apiUrl).pipe(
+    return this.http.get<BlogCard>(this.apiUrl).pipe(
       finalize(() => {
         this.loadingSubject.next(false);
       })

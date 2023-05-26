@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { BlogCard } from "src/interface/blog_card_interface";
+import { BlogCardContent } from "src/interface/blog_card_interface";
 import { BlogService } from "src/service/blog.service";
 
 @Component({
@@ -10,7 +10,7 @@ import { BlogService } from "src/service/blog.service";
 })
 export class BlogCardComponent implements OnInit {
   isLoading: boolean = false;
-  blogCards: BlogCard[] = [];
+  blogCards: BlogCardContent[] = [];
 
   constructor(private blogService: BlogService) {}
 
@@ -23,8 +23,8 @@ export class BlogCardComponent implements OnInit {
   }
 
   loadBlogPosts(): void {
-    this.blogService.getBlogPosts().subscribe((posts) => {
-      this.blogCards = posts;
+    this.blogService.getBlogPosts().subscribe((data) => {
+      this.blogCards = data.products;
     });
   }
 }

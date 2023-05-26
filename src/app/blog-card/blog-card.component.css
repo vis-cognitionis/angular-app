@@ -6,12 +6,22 @@
     background: #FFFFFF;
     border: 1px solid rgba(17, 17, 17, 0.1);
     border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.blog-image {
+    width: auto;
+    max-width: 350px;
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-height: 400px;
 }
 
 .blog-card-list-container {
     display: flex;
     flex-direction: row;
-    background-color: rgb(234, 174, 182);
     height: auto;
     flex-wrap: wrap;
     justify-content: center;
