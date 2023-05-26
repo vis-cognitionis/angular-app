@@ -8,7 +8,7 @@ import { HeaderComponent } from "./header/header.component";
 import { BannerComponent } from "./banner/banner.component";
 import { FeaturedComponent } from "./featured/featured.component";
 import { BlogCardComponent } from "./blog-card/blog-card.component";
-import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
+import { ThemeSwitcherComponent } from "./theme-switcher/theme-switcher.component";
 
 @NgModule({
   declarations: [
